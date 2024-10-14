@@ -1,2 +1,17 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using static System.Console;
+
+namespace ToDoList
+{
+    public class Program
+    {
+        /*
+            Main Program entry point
+        */
+        private static void Main(string[] args)
+        {
+            WriteLine("Hello world!");
+        }
+
+    }
+}
+
