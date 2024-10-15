@@ -52,6 +52,29 @@ namespace ToDoList
             return deserializer.Deserialize<TodoListControl>(yaml);
         }
 
+        public static void PrintList(List<TodoTask> tasks)
+        {
+        //  
+        //     Id     Status          Description       Project          Due date              
+        //     ==     ======          ===========       =======          ========
+        //      1     [Pending]       Celebrate Xmas    Project Xmas     2024-12-24
+        //      2     [Completed]     Walk the dog      Project Dog      2024-10-10
+        //      3     [Completed]     Sing a song       Project X        2024-06-01
+        //      .
+        //      .
+        //     10     [Cancelled]     Learn to fly      Project X        2025-11-23
+        //
+            foreach( var task in tasks)
+            {
+
+            }
+        }
+
+        public void PrintList()
+        {
+            PrintList(TaskList);
+        }
+
         public List<TodoTask> ToSortedList()
         {
             return TaskList.OrderBy( x => x.Cancelled )
