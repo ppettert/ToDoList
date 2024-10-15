@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+using System.Security.Cryptography.X509Certificates;
+using System.Linq.Expressions;
 
 namespace ToDoList
 {
@@ -39,6 +41,16 @@ namespace ToDoList
     public class Program
     {
         
+        private static void WriteAsYaml(List<TodoTask> taskList)
+        {
+            var serializer = new SerializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+            var yaml = serializer.Serialize(taskList);
+            WriteLine(yaml);
+        }
+
+
         /*
             Main Program entry point
         */
@@ -58,12 +70,33 @@ namespace ToDoList
             todoListControl.TaskList.AddRange
             ( 
                 [
-                    new( "Oj", "Oj", "Oj" ),
+                   // new( "Oj", "Oj", "Oj" ), // intentional string with invalid date
                     new( "Hej", "2023-10-01", "Project X", TaskStatus.Completed ),
                     new( "På",  "2024-09-02", "Project Y", TaskStatus.Completed ),
-                    new( "Dig", "2025-11-03", "Project Z", TaskStatus.Pending ) 
+                    new( "Dig", "2021-11-03", "Project Z", TaskStatus.Pending ),
+                    new( "Ooo", "2025-01-01", "Project Z1", TaskStatus.Pending, true )
                 ]
             );
+
+
+            try 
+            { 
+                List<TodoTask> sortedTasks3 = todoListControl.TaskList
+                                                             .OrderBy( x => x.Cancelled )
+                                                             .ThenBy( x => x.Status )
+                                                             .ThenBy( x => DateOnly.Parse( x.DueDate ) )
+                                                             .ToList();
+                WriteAsYaml( new TodoListControl().TaskList = sortedTasks3 );
+
+                // Use my own Print function so I can 
+              
+            }
+            catch( System.FormatException e )
+            {
+                WriteLine( "Invalid date field: " + e.Message );
+            }
+            
+
 
             IListControl listControl = todoListControl;
             var menu = new Menu( listControl );
@@ -71,6 +104,8 @@ namespace ToDoList
             {
                 // MainMenu loop
             }
+
+
 
             var serializer = new SerializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)

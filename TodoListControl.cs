@@ -1,7 +1,7 @@
+using Microsoft.VisualBasic;
+
 namespace ToDoList
 {
-
-    // This class is needed by Yaml (de)serializer/parser   
     // Acts as controller of the model which is
     // the contained TaskList and it's TodoTask items.
     public class TodoListControl : IListControl 
