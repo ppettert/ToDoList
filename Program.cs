@@ -45,15 +45,12 @@ namespace ToDoList
         {
             // WriteLine("Hello world!\n-----------");
 
-            var todoListControl = new TodoListControl
-            {
-                TaskList = []
-            };
+            var todoListControl = new TodoListControl();
 
             todoListControl.TaskList.AddRange
             ( 
                 [
-                   // new( "Oj", "Oj", "Oj" ), // intentional string with invalid date
+                   // new( "Oj", "Oj", "Oj" ), // string with intentionally invalid date
                     new( "Hej", "2023-10-01", "Project X", TaskStatus.Completed ),
                     new( "På",  "2024-09-02", "Project Y", TaskStatus.Completed ),
                     new( "Dig", "2021-11-03", "Project Z", TaskStatus.Pending ),
@@ -65,13 +62,9 @@ namespace ToDoList
             try 
             { 
                 // FormatException if DueDate contains garbage
-                List<TodoTask> sortedTasks3 = todoListControl.TaskList
-                                                             .OrderBy( x => x.Cancelled )
-                                                             .ThenBy( x => x.Status )
-                                                             .ThenBy( x => DateOnly.Parse( x.DueDate ) )
-                                                             .ToList();
+                List<TodoTask> sortedTaskList = todoListControl.ToSortedList();
                 
-                todoListControl.TaskList = sortedTasks3; 
+                todoListControl.TaskList = sortedTaskList;
 
                 WriteLine(todoListControl.ToYamlString());
               
