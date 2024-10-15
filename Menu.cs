@@ -10,6 +10,7 @@ namespace ToDoList
         private bool loop = false; 
         private IListControl _listControl = listControl;
 
+        /* returns true if action was performed */
         private bool New()
         {
             WriteLine("New Task");
@@ -18,7 +19,7 @@ namespace ToDoList
             // Ask user for Due Date
             // Validate date
             // Call TodoListControl.Add
-            _listControl.Add( "hej", "hej", "hej");
+            _listControl.Add( "I have to do something", "2011-11-11", "Project Q");
             return true;
         }
 

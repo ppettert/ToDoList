@@ -1,4 +1,4 @@
-using System.Collections;
+
 
 namespace ToDoList
 {
@@ -51,9 +51,14 @@ namespace ToDoList
 
         }
 
+        /* Toggles between Pending and Completed */
         public void ChangeStatus()
         {
-            Status = (Status == TaskStatus.Pending ? TaskStatus.Completed : TaskStatus.Pending);
+            if( Status == TaskStatus.Pending )
+                Status = TaskStatus.Completed;
+            else
+                Status = TaskStatus.Pending;
+
         }
 
         public void ToggleCancel()
