@@ -1,6 +1,7 @@
 # ToDoList project
-## C# training project 
-### Pre-requisites:
+## C# training project
+
+### Pre-requisites
 
 YamlDotNet package: 
 https://github.com/aaubry/YamlDotNet
