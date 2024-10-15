@@ -4,29 +4,38 @@ namespace ToDoList
     public enum TaskStatus
     {
         Pending,
-        Completed,
-        Cancelled
+        Completed
     }
 
     public class TodoTask
     {
-      //   private DateOnly _dueDate = dueDate;
-
-        public string? TaskTitle { get; set; } 
+        public string? Description { get; set; } 
         public string? DueDate { get; set; } 
         public TaskStatus Status { get; set; } 
         public string? Project { get; set; } 
+        public bool Cancelled { get; set; }
 
         public TodoTask()
         {
            // Needed by yaml deserialize 
         }
-        public TodoTask( string taskTitle, string dueDate, TaskStatus status, string project ) 
+        public TodoTask( string description, string dueDate, TaskStatus status, string project, bool cancelled = false ) 
         {
-            TaskTitle = taskTitle;
+            Description = description;
             DueDate = dueDate;
             Status = status;
             Project = project;
+            Cancelled = cancelled;
+        }
+
+        public void ChangeStatus()
+        {
+            Status = (Status == TaskStatus.Pending ? TaskStatus.Completed : TaskStatus.Pending);
+        }
+
+        public void ToggleCancel()
+        {
+            Cancelled = !Cancelled;
         }
     }
 }

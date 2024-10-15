@@ -46,36 +46,35 @@ namespace ToDoList
         {
             // WriteLine("Hello world!\n-----------");
 
-            var menu = new Menu();
-            while( menu.Run() )
-            {
-                
-            }
-
-
-            var ctrl = new TodoListControl
+            var todoListControl = new TodoListControl
             {
                 TaskList = []
             };
-
 
             // ctrl.TaskList.Add( new( "Hej", "2023-10-01", TaskStatus.Completed, "Project X" ) );
             // ctrl.TaskList.Add( new( "På", "2024-09-02", TaskStatus.Completed, "Project Y" ) );
             // ctrl.TaskList.Add( new( "Dig", "2025-11-03", TaskStatus.Pending, "Project Z" ) );
 
-            ctrl.TaskList.AddRange
+            todoListControl.TaskList.AddRange
             ( 
                 [
                     new( "Hej", "2023-10-01", TaskStatus.Completed, "Project X" ),
-                    new( "På", "2024-09-02", TaskStatus.Completed, "Project Y" ),
-                    new( "Dig", "2025-11-03", TaskStatus.Pending, "Project Z" ) 
+                    new( "På",  "2024-09-02", TaskStatus.Completed, "Project Y" ),
+                    new( "Dig", "2025-11-03", TaskStatus.Pending,   "Project Z" ) 
                 ]
             );
+
+            IListControl listControl = todoListControl;
+            var menu = new Menu( listControl );
+            while( menu.Run() )
+            {
+                // MainMenu loop
+            }
 
             var serializer = new SerializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
-            var yaml = serializer.Serialize(ctrl.TaskList);
+            var yaml = serializer.Serialize(todoListControl.TaskList);
             WriteLine(yaml);
 
             File.WriteAllText("todolist.yaml", yaml);

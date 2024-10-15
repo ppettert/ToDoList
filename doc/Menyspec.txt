@@ -1,0 +1,45 @@
+
+Todolist menyval
+
+- New task
+- Delete task
+- Edit task properties
+    - Edit Title
+    - Edit Due date
+    - Edit Status
+    - Edit Project 
+- Toggle status Pending / Completed / Cancelled
+
+- List all
+    Sort order: 
+        First by Status ( 1. Pending, 2. Completed 3. Cancelled )
+        Then by Due date ( ascending, earliest date to last )
+
+Completed tasks => Entire line grey
+Cancelled tasks => Entire line grey
+Overdue tasks   => Status Pending = RED color  
+
+
+Sketch:
+-------
+
+ToDoList 1.0 
+
+Id     Status          Description     Project          Due date              
+===    ======          ===========     =======          ========
+  1    [Pending]       Celebrate Xmas  Project Xmas     2024-12-24
+  2    [Completed]     Walk the dog    Project Dog      2024-10-10
+  3    [Completed]     Sing a song     Project X        2024-06-01
+  .
+  .
+ 10    [Cancelled]     Learn to fly    Project X        2025-11-23
+
+Menu:
+    (N)ew Task { Enter Description, Project, Due Date, set to Pending }
+    (E)dit { Pick Id } { Description, Project, Due Date }
+    (D)elete Task
+    (S)et to Completed / Pending
+    (C)ancel Task
+    (Q)uit
+
+Show the list after finishing every menu choice
