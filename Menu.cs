@@ -27,6 +27,7 @@ namespace ToDoList
             return true;
         }
 
+        /* returns true if action was performed */
         private bool Edit()
         {
             WriteLine("Edit Task");
@@ -36,38 +37,49 @@ namespace ToDoList
             // Ask user for Input
             // If Property is Due Date validate
             // Call TodoListControl.Edit(Nbr,PropertyName,Input)
+            int index = 0;
+            _listControl.Edit( index, "edited", "project" );
             return true;
         }
 
+        /* returns true if action was performed */
         private bool Delete()
         {
             WriteLine("Delete Task");
             // Ask User for Nbr in List
             // Validate, Confirm
             // Call TodoListControl.Delete(Nbr)
+            int index = 0;
+            _listControl.Delete( index );
             return true;
         }
 
+        /* returns true if action was performed */
         private bool SetStatus()
         {
             WriteLine("Set Task Status");    
             // Ask User for Nbr in List
-            // Call TodoListControl.ToggleStatus(Nbr)     
+            // Call TodoListControl.ToggleStatus(Nbr)   
+            int index = 0;  
+            _listControl.SetStatus( index );
             return true;
         }
 
+        /* returns true if action was performed */
         private bool Cancel()
         {
             WriteLine("Cancel task");
             // Ask User for Nbr in List
             // Call TodoListControl.SetStatus(Cancelled)
+            int index = 0;
+            _listControl.Cancel( index );
             return true;
         }
 
         private bool Quit()
         {
             WriteLine("Bye.");
-            return false;         
+            return true;         
         }                
 
         public bool Run()
@@ -92,18 +104,23 @@ namespace ToDoList
             switch( input )
             {
                 case "N":
-                    return New();
+                    New();
+                    break;
                 case "E":
-                    return Edit();
+                    Edit();
+                    break;
                 case "D":
-                    return Delete();
+                    Delete();
+                    break;
                 case "S":
-                    return SetStatus();
+                    SetStatus();
+                    break;
                 case "C":
-                    return Cancel();
+                    Cancel();
+                    break;
                 case "Q":
+                    Quit();
                     loop = false;
-                    WriteLine("Goodbye.");
                     break;
                 default:
                     WriteLine("No.");

@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace ToDoList
 {
 
@@ -19,13 +21,34 @@ namespace ToDoList
         {
            // Needed by yaml deserialize 
         }
-        public TodoTask( string description, string dueDate, TaskStatus status, string project, bool cancelled = false ) 
+        public TodoTask( string description, string dueDate, string project, TaskStatus status=TaskStatus.Pending, bool cancelled = false ) 
         {
             Description = description;
             DueDate = dueDate;
             Status = status;
             Project = project;
             Cancelled = cancelled;
+        }
+
+        /* returns false if propertyName does not match any TodoTask property */
+        public bool EditProperty( string propertyString, string propertyName )
+        {
+            switch( propertyName )
+            {
+                case "description":
+                    Description = propertyString;
+                    break;
+                case "duedate":
+                    DueDate = propertyString;
+                    break;
+                case "project":
+                    Project = propertyString;
+                    break;
+                default:
+                    return false; 
+            }
+            return true;
+
         }
 
         public void ChangeStatus()

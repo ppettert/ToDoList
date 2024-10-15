@@ -58,9 +58,10 @@ namespace ToDoList
             todoListControl.TaskList.AddRange
             ( 
                 [
-                    new( "Hej", "2023-10-01", TaskStatus.Completed, "Project X" ),
-                    new( "På",  "2024-09-02", TaskStatus.Completed, "Project Y" ),
-                    new( "Dig", "2025-11-03", TaskStatus.Pending,   "Project Z" ) 
+                    new( "Oj", "Oj", "Oj" ),
+                    new( "Hej", "2023-10-01", "Project X", TaskStatus.Completed ),
+                    new( "På",  "2024-09-02", "Project Y", TaskStatus.Completed ),
+                    new( "Dig", "2025-11-03", "Project Z", TaskStatus.Pending ) 
                 ]
             );
 
