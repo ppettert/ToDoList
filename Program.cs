@@ -34,39 +34,7 @@ namespace ToDoList
 
         You can sort it when you get the info again from file. Just think and create your appropriate functions and methods. 
     */
-    public enum TaskStatus
-    {
-        Pending,
-        Completed
-    }
-
-    public class TodoTask
-    {
-      //   private DateOnly _dueDate = dueDate;
-
-        public string? TaskTitle { get; set; } 
-        public string? DueDate { get; set; } 
-        public TaskStatus Status { get; set; } 
-        public string? Project { get; set; } 
-
-        public TodoTask()
-        {
-           // Needed by yaml deserialize 
-        }
-        public TodoTask( string taskTitle, string dueDate, TaskStatus status, string project ) 
-        {
-            TaskTitle = taskTitle;
-            DueDate = dueDate;
-            Status = status;
-            Project = project;
-        }
-    }
-
-    public class TodoList 
-    {
-        public List<TodoTask>? TaskList { get; set; }
-    }
-
+ 
 
     public class Program
     {
@@ -78,20 +46,29 @@ namespace ToDoList
         {
             WriteLine("Hello world!\n-----------");
 
-            var stufftodo = new TodoList
+            var ctrl = new TodoListControl
             {
-                TaskList =
-                [
-                    new( "Hej", "2023-10-01", TaskStatus.Completed, "Project X" ),    
-                    new( "På", "2024-09-02", TaskStatus.Completed, "Project Y" ),
-                    new( "Dig", "2025-11-03", TaskStatus.Pending, "Project Z" )
-                ]
+                TaskList = []
             };
-            
+
+
+            // ctrl.TaskList.Add( new( "Hej", "2023-10-01", TaskStatus.Completed, "Project X" ) );
+            // ctrl.TaskList.Add( new( "På", "2024-09-02", TaskStatus.Completed, "Project Y" ) );
+            // ctrl.TaskList.Add( new( "Dig", "2025-11-03", TaskStatus.Pending, "Project Z" ) );
+
+            ctrl.TaskList.AddRange
+            ( 
+                [
+                    new( "Hej", "2023-10-01", TaskStatus.Completed, "Project X" ),
+                    new( "På", "2024-09-02", TaskStatus.Completed, "Project Y" ),
+                    new( "Dig", "2025-11-03", TaskStatus.Pending, "Project Z" ) 
+                ]
+            );
+
             var serializer = new SerializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
-            var yaml = serializer.Serialize(stufftodo);
+            var yaml = serializer.Serialize(ctrl.TaskList);
             WriteLine(yaml);
 
             File.WriteAllText("todolist.yaml", yaml);
@@ -102,22 +79,25 @@ namespace ToDoList
 
             */
 
-            var yammy = File.ReadAllText( "todolist.yaml" );
+            var yaml_from_file = File.ReadAllText( "todolist.yaml" );
 
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
 
+
+            var ctrl_a = new TodoListControl
+            {
+                TaskList = deserializer.Deserialize<List<TodoTask>>(yaml)
+            };
+
+            var ctrl_b = new TodoListControl
+            {
+                TaskList = deserializer.Deserialize<List<TodoTask>>(yaml_from_file)          
+            };
            
-          //  ToDoList stufftodo2 = 
-            var mystuffs = deserializer.Deserialize<TodoList>(yammy);
-
-
-/**
-            var p = deserializer.Deserialize<Person>(yml);
-            var h = p.Addresses["home"];
-            System.Console.WriteLine($"{p.Name} is {p.Age} years old and lives at {h.Street} in {h.City}, {h.State}.");
-**/
+            // "Test case"
+            // ctrl_a and ctrl_b will contain the same data if successful
 
             WriteLine("----\ngbye");
         }
