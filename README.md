@@ -1,7 +1,8 @@
 # ToDoList project
 ## C# training project 
+### Pre-requisites
 
-Requires YamlDotNet package: 
+YamlDotNet package: 
 https://github.com/aaubry/YamlDotNet
 
 CLI installation:
