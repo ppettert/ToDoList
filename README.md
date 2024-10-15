@@ -13,4 +13,4 @@ dotnet add package YamlDotNet --version 16.1.3
 
 ### Good to know
 
-Writes to todolist.yaml
+Writes to file todolist.yaml
