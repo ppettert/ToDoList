@@ -35,6 +35,11 @@ namespace ToDoList
             TaskList.ElementAt( index).ToggleCancel();
         }
 
+        public void PrintList()
+        {
+            PrintList(TaskList);
+        }        
+
         public string ToYamlString()
         {
             var serializer = new SerializerBuilder()
@@ -70,10 +75,7 @@ namespace ToDoList
             }
         }
 
-        public void PrintList()
-        {
-            PrintList(TaskList);
-        }
+
 
         public List<TodoTask> ToSortedList()
         {
