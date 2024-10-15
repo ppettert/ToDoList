@@ -1,7 +1,7 @@
 # ToDoList project
 
 
-Requires YamlDotNet package
+Requires YamlDotNet package: 
 https://github.com/aaubry/YamlDotNet
 
 CLI installation:
