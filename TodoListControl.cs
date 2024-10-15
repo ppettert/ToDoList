@@ -1,4 +1,5 @@
-using Microsoft.VisualBasic;
+using YamlDotNet.Serialization.NamingConventions;
+using YamlDotNet.Serialization;
 
 namespace ToDoList
 {
@@ -34,6 +35,35 @@ namespace ToDoList
             TaskList?.ElementAt( index).ToggleCancel();
         }
 
+        public string ToYamlString()
+        {
+            var serializer = new SerializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+            return serializer.Serialize(this);
+        }
+
+        public static TodoListControl FromYamlString(string yaml)
+        {
+            var deserializer = new DeserializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+
+            return deserializer.Deserialize<TodoListControl>(yaml);
+        }
+
+        public TodoListControl()
+        {    
+        }
+
+        public TodoListControl( string yaml )
+        {
+            var deserializer = new DeserializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+
+            TaskList = deserializer.Deserialize<TodoListControl>(yaml).TaskList;
+        }
 
     }
 }

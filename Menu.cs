@@ -4,16 +4,11 @@ using static System.Console;
 namespace ToDoList
 {
 
-    public class Menu
+    public class Menu(IListControl listControl)
     {
         // flag to tell if we stay in ui loop or not
         private bool loop = false; 
-        private IListControl _listControl; 
-        
-        public Menu( IListControl listControl )
-        {
-            _listControl = listControl;
-        }
+        private IListControl _listControl = listControl;
 
         private bool New()
         {

@@ -1,10 +1,7 @@
 ﻿using static System.Console;
-using System;
-using System.Collections.Generic;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
-using System.Security.Cryptography.X509Certificates;
-using System.Linq.Expressions;
+
 
 namespace ToDoList
 {
@@ -40,16 +37,6 @@ namespace ToDoList
 
     public class Program
     {
-        
-        private static void WriteAsYaml(List<TodoTask> taskList)
-        {
-            var serializer = new SerializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                .Build();
-            var yaml = serializer.Serialize(taskList);
-            WriteLine(yaml);
-        }
-
 
         /*
             Main Program entry point
@@ -62,10 +49,6 @@ namespace ToDoList
             {
                 TaskList = []
             };
-
-            // ctrl.TaskList.Add( new( "Hej", "2023-10-01", TaskStatus.Completed, "Project X" ) );
-            // ctrl.TaskList.Add( new( "På", "2024-09-02", TaskStatus.Completed, "Project Y" ) );
-            // ctrl.TaskList.Add( new( "Dig", "2025-11-03", TaskStatus.Pending, "Project Z" ) );
 
             todoListControl.TaskList.AddRange
             ( 
@@ -81,14 +64,16 @@ namespace ToDoList
 
             try 
             { 
+                // FormatException if DueDate contains garbage
                 List<TodoTask> sortedTasks3 = todoListControl.TaskList
                                                              .OrderBy( x => x.Cancelled )
                                                              .ThenBy( x => x.Status )
                                                              .ThenBy( x => DateOnly.Parse( x.DueDate ) )
                                                              .ToList();
-                WriteAsYaml( new TodoListControl().TaskList = sortedTasks3 );
+                
+                todoListControl.TaskList = sortedTasks3; 
 
-                // Use my own Print function so I can 
+                WriteLine(todoListControl.ToYamlString());
               
             }
             catch( System.FormatException e )
@@ -96,8 +81,6 @@ namespace ToDoList
                 WriteLine( "Invalid date field: " + e.Message );
             }
             
-
-
             IListControl listControl = todoListControl;
             var menu = new Menu( listControl );
             while( menu.Run() )
@@ -105,13 +88,7 @@ namespace ToDoList
                 // MainMenu loop
             }
 
-
-
-            var serializer = new SerializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                .Build();
-            var yaml = serializer.Serialize(todoListControl.TaskList);
-            WriteLine(yaml);
+            var yaml = todoListControl.ToYamlString();
 
             File.WriteAllText("todolist.yaml", yaml);
 
@@ -123,24 +100,13 @@ namespace ToDoList
 
             var yaml_from_file = File.ReadAllText( "todolist.yaml" );
 
-            var deserializer = new DeserializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                .Build();
+            // Sanity Test cases
+            // ctrl_a, ctrl_b and ctrl_c will contain the same data if successful
+            var ctrl_a = TodoListControl.FromYamlString( yaml );
+            var ctrl_b = TodoListControl.FromYamlString( yaml_from_file );     
 
-
-            var ctrl_a = new TodoListControl
-            {
-                TaskList = deserializer.Deserialize<List<TodoTask>>(yaml)
-            };
-
-            var ctrl_b = new TodoListControl
-            {
-                TaskList = deserializer.Deserialize<List<TodoTask>>(yaml_from_file)          
-            };
+            var ctrl_c = new TodoListControl( yaml );
            
-            // "Test case"
-            // ctrl_a and ctrl_b will contain the same data if successful
-
             WriteLine("----\ngbye");
         }
 

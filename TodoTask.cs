@@ -19,7 +19,7 @@ namespace ToDoList
 
         public TodoTask()
         {
-           // Needed by yaml deserialize 
+           // Required by yaml deserialize!
         }
         public TodoTask( string description, string dueDate, string project, TaskStatus status=TaskStatus.Pending, bool cancelled = false ) 
         {
