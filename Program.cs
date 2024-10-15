@@ -44,7 +44,14 @@ namespace ToDoList
         */
         private static void Main(string[] args)
         {
-            WriteLine("Hello world!\n-----------");
+            // WriteLine("Hello world!\n-----------");
+
+            var menu = new Menu();
+            while( menu.Run() )
+            {
+                
+            }
+
 
             var ctrl = new TodoListControl
             {
