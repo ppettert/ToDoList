@@ -6,13 +6,6 @@
 A basic todo list console application, with functionalty to track tasks to do in a list.
 Tasks in the todo list can be sorted by status (Done or not, or cancelled), and Due Date. 
 
-### Implementation
-
-Implemented in a Model View Controller (MVC) pattern, with classes for tasks, communication between
-ui view and the code that controls the model through a C# interface.
-
-<img src="https://your-image-url.type" width="100" height="100">
-
 ### Pre-requisites
 
 YamlDotNet package: 
@@ -28,9 +21,17 @@ dotnet add package YamlDotNet --version 16.1.3
 
 Writes to file todolist.yaml
 
+### Implementation
+
+Implemented in a Model View Controller (MVC) pattern, with classes for tasks, communication between
+ui view and the code that controls the model through a C# interface.
+
+<img src="https://github.com/ppettert/ToDoList/blob/main/doc/Diagram.svg" width="75%" height="75%">
+
 ### TODO
 
 There is much room for improvements. Focus was to finish the core functionality in time for presentation.
 
-It would be much nicer if I could navigate in the list, instead of entering line number.
+It would be much nicer if I could navigate in the list, instead of entering line number. 
+The separation between visual presentation and data makes it easy to adapt the code to a GUI or web app, when time permits.
 
