@@ -6,6 +6,16 @@
 A basic todo list console application, with functionalty to track tasks to do in a list.
 Tasks in the todo list can be sorted by status (Done or not, or cancelled), and Due Date. 
 
+The application main menu:
+```
+(N)ew, create a new task to the list and add it
+(E)dit, edit properties of an existing task
+(D)elete, delete a task
+(S)tatus change, change status of the task between Pending and Completed
+(C)ancel, cancel the task
+(Q)uit, quit the app
+```
+
 ### Pre-requisites
 
 YamlDotNet package: 
