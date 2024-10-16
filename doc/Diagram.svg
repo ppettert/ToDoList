@@ -1,91 +1,139 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 3508 2481" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
-    <g transform="matrix(1,0,0,1,496.95,721.803)">
-        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:4.17px;"/>
+    <g transform="matrix(1.74628,0,0,1.61448,-77.2365,175.68)">
+        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:2.48px;"/>
     </g>
-    <g transform="matrix(1,0,0,1,1808.68,1294.16)">
-        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:4.17px;"/>
+    <g transform="matrix(1.24907,0,0,1.26391,1748.37,1261.06)">
+        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:3.32px;"/>
     </g>
-    <g transform="matrix(1,0,0,1,10.5763,-1019.25)">
+    <g transform="matrix(0.86648,0,0,0.86648,289.267,66.7873)">
+        <text x="2137.86px" y="2075.51px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:57.705px;">Menu(listControl);</text>
+        <text x="2137.86px" y="2190.91px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:57.705px;">PrintList();</text>
+        <text x="2137.86px" y="2306.32px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:57.705px;">Run();</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-159.33,-1341.64)">
         <text x="801.882px" y="1720.98px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:100px;">Controller</text>
     </g>
-    <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:4.17px;"/>
-    <g transform="matrix(1,0,0,1,1312.37,579.301)">
-        <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:4.17px;"/>
+    <g transform="matrix(1.74214,0.00344566,0.00344566,1.00002,-949.355,-304.508)">
+        <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:2.93px;"/>
     </g>
-    <text x="857.124px" y="1134.87px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">T<tspan x="882.124px 909.932px " y="1134.87px 1134.87px ">od</tspan>oListControl</text>
-    <g transform="matrix(1,0,0,1,1382.09,-28.7478)">
-        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:4.17px;"/>
+    <g transform="matrix(1.24866,0.00115449,0.00115449,1.00001,1126.66,639.78)">
+        <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:3.68px;"/>
     </g>
-    <g transform="matrix(1,0,0,1,1386.28,-1542.7)">
+    <g transform="matrix(1,0,0,1,-195.758,-309.723)">
+        <text x="857.124px" y="1134.87px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:50px;">T<tspan x="883.955px 914.497px " y="1134.87px 1134.87px ">od</tspan>oListControl</text>
+    </g>
+    <g transform="matrix(1.29853,0,0,1.23966,1321.71,91.9735)">
+        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:3.28px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-279.095,226.19)">
+        <text x="2052.58px" y="510.394px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Add( todoTask );</text>
+        <text x="2052.58px" y="610.394px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">ElementAt();</text>
+        <text x="2052.58px" y="660.394px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">RemoveAt();</text>
+        <text x="2052.58px" y="760.394px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">OrderBy();</text>
+    </g>
+    <g transform="matrix(1,0,0,1,1493.74,-1342.05)">
         <text x="801.882px" y="1720.98px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:100px;">Model</text>
     </g>
-    <g transform="matrix(1,0,0,1,885.135,-750.551)">
-        <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:4.17px;"/>
+    <g transform="matrix(1.299,0.00138821,0.00138821,1.00001,672.419,-545.384)">
+        <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:3.59px;"/>
     </g>
-    <g transform="matrix(1,0,0,1,885.135,-750.551)">
-        <text x="857.124px" y="1134.87px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">List &lt;T<tspan x="1003.02px 1030.83px " y="1134.87px 1134.87px ">od</tspan>oT<tspan x="1111.44px 1139.25px " y="1134.87px 1134.87px ">as</tspan>k&gt;</text>
+    <g transform="matrix(1,0,0,1,974.75,-544.623)">
+        <text x="857.124px" y="1134.87px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:50px;">List</text>
+        <text x="959.907px" y="1134.87px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">&lt;T<tspan x="1014.11px 1041.91px " y="1134.87px 1134.87px ">od</tspan>oT<tspan x="1122.53px 1150.34px " y="1134.87px 1134.87px ">as</tspan>k&gt;</text>
     </g>
-    <g transform="matrix(1.01088,0,0,0.987125,2149.47,-23.4095)">
-        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:4.17px;"/>
+    <g transform="matrix(1.29853,0,0,1.23966,2164.41,91.8067)">
+        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:3.28px;"/>
     </g>
-    <g transform="matrix(1,0,0,1,1653.2,-749.823)">
-        <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:4.17px;"/>
+    <g transform="matrix(1,0,0,1,-264.152,242.576)">
+        <text x="2840.35px" y="469.881px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">string Description;</text>
+        <text x="2900.56px" y="569.881px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">DateOnly DueDate;</text>
+        <text x="3051.07px" y="619.881px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">enum Status;</text>
+        <text x="2960.76px" y="669.881px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">string Project;</text>
+        <text x="2960.76px" y="719.881px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">bool Cancelled;</text>
+        <text x="2960.76px" y="819.881px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">EditProperty();</text>
     </g>
-    <g transform="matrix(1,0,0,1,1725.77,-745.173)">
-        <text x="857.124px" y="1134.87px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">T<tspan x="882.124px 909.932px " y="1134.87px 1134.87px ">od</tspan>oT<tspan x="990.547px 1018.35px " y="1134.87px 1134.87px ">as</tspan>k</text>
+    <g transform="matrix(1.29613,0.00137487,0.00137487,1.00001,1515.55,-544.308)">
+        <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:3.6px;"/>
     </g>
-    <g transform="matrix(1,0,0,1,-141.062,-18.453)">
-        <text x="297.362px" y="281.984px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:100px;">Model-V<tspan x="667.918px 690.135px " y="281.984px 281.984px ">ie</tspan>w-Controller (MVC)</text>
+    <g transform="matrix(1,0,0,1,1898.15,-542.885)">
+        <text x="857.124px" y="1134.87px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:50px;">T<tspan x="883.955px 914.497px " y="1134.87px 1134.87px ">od</tspan>oT<tspan x="1002.41px 1030.22px " y="1134.87px 1134.87px ">as</tspan>k</text>
     </g>
-    <g transform="matrix(1,0,0,1,465.245,-1.51054)">
+    <g transform="matrix(1,0,0,1,631.591,-104.296)">
+        <text x="297.362px" y="281.984px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:125px;">Model-V<tspan x="760.557px 788.328px " y="281.984px 281.984px ">ie</tspan>w-Controller (MVC)</text>
+    </g>
+    <g transform="matrix(1,0,0,1,519.533,-698.439)">
         <text x="1797.43px" y="2311.48px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:100px;">V<tspan x="1862.33px 1884.54px " y="2311.48px 2311.48px ">ie</tspan>w</text>
     </g>
-    <g transform="matrix(1,0,0,1,500.183,-26.8034)">
-        <text x="1782.99px" y="1744.34px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">Menu</text>
+    <g transform="matrix(1,0,0,1,565.092,26.5994)">
+        <text x="1782.99px" y="1744.34px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:50px;">Menu</text>
     </g>
-    <g transform="matrix(1,0,0,1,513.073,1517.87)">
+    <g transform="matrix(1,0,0,1,334.331,1494.4)">
         <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:4.17px;"/>
     </g>
-    <g transform="matrix(1,0,0,1,16.7632,803.013)">
+    <g transform="matrix(1,0,0,1,-201.629,-18.602)">
+        <text x="855.124px" y="2096.1px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Main()</text>
+        <text x="1035.74px" y="2096.1px" style="font-family:'Monaco';font-size:50px;">;</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-163.355,781.369)">
         <path d="M797.052,1157.69L1270.68,1159.89" style="fill:none;stroke:black;stroke-width:4.17px;"/>
     </g>
-    <g transform="matrix(1,0,0,1,-873.016,187.729)">
-        <text x="1782.99px" y="1744.34px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">T<tspan x="1807.99px 1835.79px " y="1744.34px 1744.34px ">od</tspan>oListApp</text>
+    <g transform="matrix(1,0,0,1,-1069.84,165.176)">
+        <text x="1782.99px" y="1744.34px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:50px;">T<tspan x="1809.82px 1840.36px " y="1744.34px 1744.34px ">od</tspan>oListApp</text>
     </g>
-    <path d="M2425.41,542.651L2450.47,561.321L2425.53,580.151L2425.41,542.651Z"/>
-    <path d="M2155.13,562.269C2155.13,562.269 2364.07,561.598 2430.47,561.385" style="fill:none;stroke:black;stroke-width:8.33px;"/>
-    <g transform="matrix(1.38263,-0.996588,0.58182,0.81333,-2034.99,2826.85)">
-        <g transform="matrix(0.477203,0.584726,-0.34137,0.811227,1936.11,-1103.3)">
-            <path d="M1648.44,840.75L1679.68,841.284L1670.42,871.13L1648.44,840.75Z"/>
-            <path d="M1271.9,1136.38C1271.9,1136.38 1587.7,907.848 1663.48,853.009" style="fill:none;stroke:black;stroke-width:8.33px;"/>
+    <g transform="matrix(0.757588,0.000778154,0.000778154,0.999998,692.09,196.393)">
+        <g transform="matrix(1.31998,-0.00102715,-0.00102715,1,-913.344,-195.683)">
+            <path d="M2523.91,740.95L2548.97,759.619L2524.03,778.449L2523.91,740.95Z"/>
+            <path d="M2325.23,760.337C2325.23,760.337 2474.1,759.86 2528.97,759.683" style="fill:none;stroke:black;stroke-width:8.33px;"/>
         </g>
     </g>
-    <g transform="matrix(2.15459,0.805214,-0.355683,0.93463,-2973.19,-612.963)">
-        <g transform="matrix(0.406335,-0.350071,0.154635,0.936719,1302.9,-466.653)">
-            <path d="M1456.76,1611.41L1426.66,1619.81L1443.15,1646.35L1456.76,1611.41Z"/>
-            <path d="M1445.29,1627.07C1554.53,1669.62 2106.91,1884.82 2106.91,1884.82" style="fill:none;stroke:black;stroke-width:8.33px;"/>
+    <g transform="matrix(1.4672,-0.713409,0.434347,0.900755,-2134.78,1840.09)">
+        <g transform="matrix(0.552118,0.437284,-0.266233,0.89932,1668.54,-721.324)">
+            <path d="M1673.66,591.646L1704.35,597.516L1690.12,625.339L1673.66,591.646Z"/>
+            <path d="M1271.45,809.064C1271.45,809.064 1604.59,646.266 1686.38,606.297" style="fill:none;stroke:black;stroke-width:8.33px;"/>
         </g>
     </g>
-    <g transform="matrix(0.0369081,0.868882,-0.999957,0.00881276,1522.25,-266.526)">
-        <g transform="matrix(0.0101393,-0.999669,1.15047,0.0424636,291.197,1533.07)">
-            <path d="M1068.68,1616.61L1049.79,1591.72L1031.18,1616.83L1068.68,1616.61Z"/>
-            <path d="M1049.9,1611.72C1050.27,1675.14 1051.4,1867.59 1051.4,1867.59" style="fill:none;stroke:black;stroke-width:8.33px;"/>
+    <g transform="matrix(2.15548,0.798388,-0.352969,0.935659,-2967.58,-706.638)">
+        <g transform="matrix(0.407057,-0.347338,0.153559,0.937736,1316.48,-368.112)">
+            <path d="M1465.73,1503.65L1435.65,1512.14L1452.21,1538.64L1465.73,1503.65Z"/>
+            <path d="M1454.31,1519.34C1563.62,1561.56 2116.21,1774.99 2116.21,1774.99" style="fill:none;stroke:black;stroke-width:8.33px;"/>
         </g>
     </g>
-    <g transform="matrix(-2.5616,0.023583,-0.00552419,-1.00001,7572.45,2529.54)">
-        <g transform="matrix(-0.390362,-0.00920577,0.0021564,-0.999935,2950.54,2599.08)">
-            <path d="M2080.26,2047.28L2105.32,2028.61L2080.38,2009.78L2080.26,2047.28Z"/>
-            <path d="M1317.17,2044.83L1292.24,2026L1317.3,2007.33L1317.17,2044.83Z"/>
-            <path d="M2085.32,2028.55C1973.25,2028.19 1424.3,2026.42 1312.24,2026.06" style="fill:none;stroke:black;stroke-width:8.33px;"/>
+    <g transform="matrix(0.0367537,0.842464,-0.999957,0.00872259,1341.09,-224.709)">
+        <g transform="matrix(0.0103502,-0.999662,1.18654,0.0436116,252.747,1350.43)">
+            <path d="M887.186,1602.03L868.29,1577.14L849.687,1602.25L887.186,1602.03Z"/>
+            <path d="M868.407,1597.14C868.77,1659.24 869.854,1844.62 869.854,1844.62" style="fill:none;stroke:black;stroke-width:8.33px;"/>
         </g>
     </g>
-    <g transform="matrix(0.928308,0,0,0.834501,23.4573,102.361)">
-        <rect x="688.049" y="878.209" width="828.501" height="1036.12" style="fill:rgb(235,235,235);fill-opacity:0.23;stroke:black;stroke-width:3.3px;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:3.3,3.3;"/>
+    <g transform="matrix(-3.18158,0.0215875,-0.00764027,-1.00002,8908.93,2554.4)">
+        <g transform="matrix(-0.314293,-0.00678467,0.00240123,-0.999927,2793.88,2614.65)">
+            <path d="M2093.1,2067.88L2118.16,2049.21L2093.22,2030.38L2093.1,2067.88Z"/>
+            <path d="M2098.16,2049.15C1956.35,2048.69 1108.28,2045.96 1108.28,2045.96" style="fill:none;stroke:black;stroke-width:8.33px;"/>
+        </g>
     </g>
-    <path d="M664.535,939.716L1429.77,939.367" style="fill:none;stroke:black;stroke-width:2.71px;"/>
-    <g transform="matrix(1,0,0,1,81.9636,14.9167)">
+    <g transform="matrix(1.37846,0,0,1.14025,-650.352,-467.335)">
+        <rect x="688.049" y="878.209" width="828.501" height="1036.12" style="fill:rgb(235,235,235);fill-opacity:0.23;stroke:black;stroke-width:2.31px;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:2.31,2.31;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-363.921,-319.498)">
+        <text x="816.703px" y="1255.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">TodoListControl();</text>
+        <text x="816.703px" y="1305.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">TodoListControl( yamlStr );</text>
+        <text x="816.703px" y="1405.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">ToSortedList();</text>
+        <text x="816.703px" y="1505.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">ToYamlString();</text>
+        <text x="816.703px" y="1555.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">FromYamlString();</text>
+        <text x="816.703px" y="1655.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Add( todoTask );</text>
+        <text x="816.703px" y="1705.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Edit( todoTask );</text>
+        <text x="816.703px" y="1755.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Delete( todoTask );</text>
+        <text x="816.703px" y="1805.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">SetStatus( todoTask );</text>
+        <text x="816.703px" y="1855.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Cancel( todoTask );</text>
+    </g>
+    <g transform="matrix(1.49337,-0.000224842,-0.000224842,1,-696.647,-289.069)">
+        <path d="M664.535,939.716L1429.77,939.367" style="fill:none;stroke:black;stroke-width:2.13px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-89.5503,-283.306)">
         <text x="725.545px" y="896.288px" style="font-family:'Avenir-Book', 'Avenir';font-size:50px;">Interface IListContr<tspan x="1147.14px 1176.8px " y="896.288px 896.288px ">ol</tspan></text>
+    </g>
+    <g transform="matrix(1,0,0,1,-191.721,215.929)">
+        <text x="2573.03px" y="487.448px" style="font-family:'Monaco';font-size:41.667px;">0..n</text>
     </g>
 </svg>

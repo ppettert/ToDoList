@@ -35,7 +35,7 @@ namespace ToDoList
     */
  
 
-    public class Program
+    public class TodoListApp
     {
 
         /*
@@ -90,6 +90,8 @@ namespace ToDoList
                 // MainMenu loop
             }
 
+            // WriteLine("----test code-----");
+
             var yaml = todoListControl.ToYamlString();
 
             File.WriteAllText("todolist.yaml", yaml);
@@ -109,7 +111,7 @@ namespace ToDoList
 
             var ctrl_c = new TodoListControl( yaml );
            
-            WriteLine("----\ngbye");
+            // WriteLine("----end test code----");
         }
 
     }

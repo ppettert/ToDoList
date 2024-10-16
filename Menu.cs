@@ -35,6 +35,7 @@ namespace ToDoList
             // If Property is Due Date validate
             // Call TodoListControl.Edit(Nbr,PropertyName,Input)
             int index = 0;
+
             _listControl.Edit( index, "edited", "project" );
             return true;
         }
@@ -88,7 +89,7 @@ namespace ToDoList
             return true;         
         }                
 
-
+        /* Prints a sorted list in rows and colums with headers */
         public static void PrintList(List<TodoTask> tasks)
         {
         //  
