@@ -26,7 +26,7 @@ Writes to file todolist.yaml
 
 ### TODO
 
-There is much room for improvements. Focus was to finish the core functionality in time.
+There is much room for improvements. Focus was to finish the core functionality in time for presentation.
 
 It would be much nicer if I could navigate in the list, instead of entering line number.
 
