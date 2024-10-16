@@ -8,12 +8,12 @@ Tasks in the todo list can be sorted by status (Done or not, or cancelled), and 
 
 The application main menu:
 ```
-(N)ew, create a new task to the list and add it
-(E)dit, edit properties of an existing task
-(D)elete, delete a task
-(S)tatus change, change status of the task between Pending and Completed
-(C)ancel, cancel the task
-(Q)uit, quit the app
+(N)ew,           Create a new task to the list and add it
+(E)dit,          Edit properties of an existing task
+(D)elete,        Delete a task
+(S)tatus change  Change status of the task between Pending and Completed
+(C)ancel         Cancel the task
+(Q)uit           Quit the app
 ```
 
 ### Pre-requisites
