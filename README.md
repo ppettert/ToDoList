@@ -45,7 +45,8 @@ There is much room for improvements. Focus was to finish the core functionality 
 Some changes that I would like to make:
 
 - It would be much nicer if I could navigate in the list, instead of entering line number. 
-The separation between visual presentation and data makes it easy to adapt the code to a GUI or web app, when time permits.
+The separation between visual presentation and data makes it easy to adapt the code to a GUI or web app, when time permits.<p>
+For console, [Spectre.Console](https://spectreconsole.net/) could be used to make the navigation and presentation a bit more appealing. 
 
 - Instead of task status of Pending / Completed, simply change a flag Done to true or false
 
