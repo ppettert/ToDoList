@@ -1,4 +1,5 @@
-using System.Diagnostics;
+
+using System.Linq.Expressions;
 using static System.Console;
 
 namespace ToDoList
@@ -46,8 +47,17 @@ namespace ToDoList
             // Validate, Confirm
             // Call TodoListControl.Delete(Nbr)
             int index = 0;
-            _listControl.Delete( index );
-            return true;
+            try 
+            {
+                _listControl.Delete( index );
+                return true;
+            }
+            catch( System.ArgumentOutOfRangeException e )
+            {
+                WriteLine( "Did not delete: " + e.Message );
+                return false;
+            }
+            
         }
 
         /* returns true if action was performed */
@@ -78,21 +88,95 @@ namespace ToDoList
             return true;         
         }                
 
+
+        public static void PrintList(List<TodoTask> tasks)
+        {
+        //  
+        //     Id     Status          Description       Project          Due date              
+        //     ==     ======          ===========       =======          ========
+        //      1     [Pending]       Celebrate Xmas    Project Xmas     2024-12-24
+        //      2     [Completed]     Walk the dog      Project Dog      2024-10-10
+        //      3     [Completed]     Sing a song       Project X        2024-06-01
+        //      .
+        //      .
+        //     10     [Cancelled]     Learn to fly      Project X        2025-11-23
+        //
+
+            Write("Id".PadRight(5));
+            Write("Status".PadRight(15));
+            Write("Description".PadRight(40));
+            Write("Project".PadRight(20));
+            Write("Due date");
+            WriteLine();
+
+            Write("==".PadRight(5));
+            Write("=======".PadRight(15));
+            Write("===========".PadRight(40));
+            Write("=======".PadRight(20));
+            Write("========");
+            WriteLine();
+
+            if( tasks.Count == 0 )
+            {
+                WriteLine();
+                WriteLine("Empty List!");
+                WriteLine();
+                return;
+            }
+
+            int index = 1;
+            foreach( var task in tasks)
+            {
+                Write($"{index}".PadRight(5));
+                
+                if( task.Cancelled )
+                {
+                    ForegroundColor = ConsoleColor.White; // Looks like grey in my terminal
+                    Write("Cancelled".PadRight(15));
+                }
+                else
+                {
+                    if( task.Status == TaskStatus.Pending )
+                    {
+                        if( DateOnly.TryParse( task.DueDate, out DateOnly dueDate ))
+                        {
+                            switch( dueDate.CompareTo( DateOnly.FromDateTime( DateTime.Today )) )
+                            {
+                                case 0: // today
+                                    ForegroundColor = ConsoleColor.Red;
+                                    break;
+                                case -1:
+                                    ForegroundColor = ConsoleColor.DarkRed;
+                                    break;
+                                default:
+                                    ForegroundColor = ConsoleColor.Green;
+                                    break;
+                            };
+
+                        }
+
+                    }
+                    Write($"{task.Status}".PadRight(15));
+                }
+
+                Write($"{task.Description}".PadRight(40));
+                Write($"{task.Project}".PadRight(20));
+                Write($"{task.DueDate}");
+                ResetColor();
+                WriteLine();      
+                index++;          
+
+            }
+        }
+
         public bool Run()
         { 
             loop = true; 
 
-            WriteLine
-            (
-                @"Menu:
+            PrintList(_listControl.ToSortedList());
+            WriteLine();
 
-                (N)ew Task { Enter Description, Project, Due Date, set to Pending }
-                (E)dit { Pick Id } { Description, Project, Due Date }
-                (D)elete Task
-                (S)et Task Status to Completed / Pending
-                (C)ancel Task
-                (Q)uit"
-            ); 
+            WriteLine("Menu: (N)ew, (E)dit, (D)elete, (S)tatus change, (C)ancel, (Q)uit");
             WriteLine();
 
             string? input = ReadLine()?.Trim();

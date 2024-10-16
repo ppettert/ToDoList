@@ -43,7 +43,11 @@ namespace ToDoList
         */
         private static void Main(string[] args)
         {
-            // WriteLine("Hello world!\n-----------");
+            WriteLine();
+            WriteLine( "Welcome to TODO List App 1.0" );
+            WriteLine( "----------------------------" );
+            WriteLine( "Today's date: " + DateTime.Today.ToString("yyyy-MM-dd") );
+            WriteLine();
 
             var todoListControl = new TodoListControl();
 
@@ -51,28 +55,33 @@ namespace ToDoList
             ( 
                 [
                    // new( "Oj", "Oj", "Oj" ), // string with intentionally invalid date
-                    new( "Hej", "2023-10-01", "Project X", TaskStatus.Completed ),
-                    new( "På",  "2024-09-02", "Project Y", TaskStatus.Completed ),
-                    new( "Dig", "2021-11-03", "Project Z", TaskStatus.Pending ),
-                    new( "Ooo", "2025-01-01", "Project Z1", TaskStatus.Pending, true )
+                    new( "Hej den här texten kan vara 40 tkn", "2023-10-01", "Project X", TaskStatus.Completed ),
+                    new( "En text här",  "2024-09-02", "Project Y", TaskStatus.Completed ),
+                    new( "Ja jaja ajajajajaj jajajjajaa jaja", "2021-11-03", "Project Z", TaskStatus.Pending ),
+                    new( "Something I haven't done in time", "2023-11-03", "Project Z", TaskStatus.Pending ),
+                    new( "This is next month", "2024-11-16", "Project ZZZ"),
+                    new( "This is far into the future", "2029-03-17", "Project 3000"),
+                    new( "Something I'm supposed to do today", DateTime.Today.ToString("yyyy-MM-dd"), "Project Z", TaskStatus.Pending ),
+                    new( "Hey there, this is a descripton text", "2025-01-01", "Project Z1", TaskStatus.Pending, true ),
+                    new( "Something I did not want to do", "2021-01-01", "Project Z1", TaskStatus.Pending, true )
                 ]
             );
 
 
-            try 
-            { 
-                // FormatException if DueDate contains garbage
-                List<TodoTask> sortedTaskList = todoListControl.ToSortedList();
+            // try 
+            // { 
+            //     // FormatException if DueDate contains garbage
+            //     List<TodoTask> sortedTaskList = todoListControl.ToSortedList();
                 
-                todoListControl.TaskList = sortedTaskList;
+            //     todoListControl.TaskList = sortedTaskList;
 
-                WriteLine(todoListControl.ToYamlString());
+            //     WriteLine(todoListControl.ToYamlString());
               
-            }
-            catch( System.FormatException e )
-            {
-                WriteLine( "Invalid date field: " + e.Message );
-            }
+            // }
+            // catch( System.FormatException e )
+            // {
+            //     WriteLine( "Invalid date field: " + e.Message );
+            // }
             
             IListControl listControl = todoListControl;
             var menu = new Menu( listControl );

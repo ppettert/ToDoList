@@ -7,6 +7,8 @@ namespace ToDoList
         public void Delete( int index );
         public void SetStatus( int index );
         public void Cancel( int index );
-        public void PrintList();
+
+        public List<TodoTask> ToSortedList();        
+
    }
 } 

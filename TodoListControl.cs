@@ -1,6 +1,7 @@
 using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
 using System.Data;
+using static System.Console;
 
 namespace ToDoList
 {
@@ -35,10 +36,10 @@ namespace ToDoList
             TaskList.ElementAt( index).ToggleCancel();
         }
 
-        public void PrintList()
-        {
-            PrintList(TaskList);
-        }        
+        // public void PrintList()
+        // {
+        //     PrintList(TaskList);
+        // }        
 
         public string ToYamlString()
         {
@@ -57,32 +58,22 @@ namespace ToDoList
             return deserializer.Deserialize<TodoListControl>(yaml);
         }
 
-        public static void PrintList(List<TodoTask> tasks)
-        {
-        //  
-        //     Id     Status          Description       Project          Due date              
-        //     ==     ======          ===========       =======          ========
-        //      1     [Pending]       Celebrate Xmas    Project Xmas     2024-12-24
-        //      2     [Completed]     Walk the dog      Project Dog      2024-10-10
-        //      3     [Completed]     Sing a song       Project X        2024-06-01
-        //      .
-        //      .
-        //     10     [Cancelled]     Learn to fly      Project X        2025-11-23
-        //
-            foreach( var task in tasks)
-            {
-
-            }
-        }
-
-
 
         public List<TodoTask> ToSortedList()
         {
-            return TaskList.OrderBy( x => x.Cancelled )
-                           .ThenBy( x => x.Status )
-                           .ThenBy( x => DateOnly.Parse( x.DueDate ) )
-                           .ToList();
+            try 
+            {
+                return TaskList.OrderBy( x => x.Cancelled )
+                               .ThenBy( x => x.Status )
+                               .ThenBy( x => DateOnly.Parse( x.DueDate ) )
+                               .ToList();
+            }
+            catch( System.FormatException e )
+            {
+                WriteLine( "Invalid date field: " + e.Message );
+                return [];
+            }
+
         }
 
         public TodoListControl()
