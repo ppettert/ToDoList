@@ -42,8 +42,10 @@ ui view and the code that controls the model through a C# interface.
 
 There is much room for improvements. Focus was to finish the core functionality in time for presentation.
 
-It would be much nicer if I could navigate in the list, instead of entering line number. 
+Some changes that I would like to make:
+
+- It would be much nicer if I could navigate in the list, instead of entering line number. 
 The separation between visual presentation and data makes it easy to adapt the code to a GUI or web app, when time permits.
 
-Instead of task status of Pending / Completed, simply change a flag Done to true or false
+- Instead of task status of Pending / Completed, simply change a flag Done to true or false
 
