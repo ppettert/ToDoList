@@ -1,4 +1,4 @@
-# ToDoList project
+# ToDoList application
 ## C# training project
 
 ### Pre-requisites
