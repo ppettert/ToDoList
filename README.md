@@ -6,8 +6,12 @@
 A basic todo list console application, with functionalty to track tasks to do in a list.
 Tasks in the todo list can be sorted by status (Done or not, or cancelled), and Due Date. 
 
+### Implementation
+
 Implemented in a Model View Controller (MVC) pattern, with classes for tasks, communication between
 ui view and the code that controls the model through a C# interface.
+
+<img src="https://your-image-url.type" width="100" height="100">
 
 ### Pre-requisites
 
