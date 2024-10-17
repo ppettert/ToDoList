@@ -36,7 +36,7 @@ Writes to file todolist.yaml
 Implemented in a Model View Controller (MVC) pattern, with classes for tasks, communication between
 ui view and the code that controls the model through a C# interface.
 
-<img src="https://github.com/ppettert/ToDoList/blob/main/doc/Diagram.svg" width="75%" height="75%">
+<img src="https://github.com/ppettert/ToDoList/blob/main/doc/Diagram.svg" width="100%" height="100%">
 
 ### TODO
 
