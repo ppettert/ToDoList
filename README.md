@@ -48,9 +48,9 @@ Some changes that I would like to make:
 The separation between visual presentation and data makes it easy to adapt the code to a GUI or web app, when time permits.<p>
 For console, [Spectre.Console](https://spectreconsole.net/) could be used to make the navigation and presentation a bit more appealing. 
 
-- The flow of editing task description text, project name and due date is not optimal
+- The flow of editing task description text, project name and due date is not optimal.
 
-- Long description texts or project names are not handled at all
+- Long description texts or project names are not handled at all.
 
-- Instead of task status of Pending / Completed, simply change a flag Done to true or false
+- Instead of task status of Pending / Completed, simply change a flag Done to true or false.
 
