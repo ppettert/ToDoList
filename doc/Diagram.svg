@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 3508 2481" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
-    <g transform="matrix(1.74628,0,0,1.61448,-77.2365,175.68)">
-        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:2.48px;"/>
+    <g transform="matrix(1.74628,0,0,1.75348,-77.2365,125.903)">
+        <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:2.38px;"/>
     </g>
     <g transform="matrix(1.24907,0,0,1.26391,1748.37,1261.06)">
         <rect x="297.607" y="358.115" width="474.288" height="506.366" style="fill:rgb(235,235,235);stroke:black;stroke-width:3.32px;"/>
@@ -100,10 +100,10 @@
             <path d="M1454.31,1519.34C1563.62,1561.56 2116.21,1774.99 2116.21,1774.99" style="fill:none;stroke:black;stroke-width:8.33px;"/>
         </g>
     </g>
-    <g transform="matrix(0.0367537,0.842464,-0.999957,0.00872259,1341.09,-224.709)">
-        <g transform="matrix(0.0103502,-0.999662,1.18654,0.0436116,252.747,1350.43)">
-            <path d="M887.186,1602.03L868.29,1577.14L849.687,1602.25L887.186,1602.03Z"/>
-            <path d="M868.407,1597.14C868.77,1659.24 869.854,1844.62 869.854,1844.62" style="fill:none;stroke:black;stroke-width:8.33px;"/>
+    <g transform="matrix(0.0354704,0.622976,-0.999962,0.00797345,1344.23,313.559)">
+        <g transform="matrix(0.0127936,-0.999584,1.60447,0.0569133,-520.292,1325.83)">
+            <path d="M887.594,1671.7L868.698,1646.81L850.094,1671.92L887.594,1671.7Z"/>
+            <path d="M868.815,1666.81C869.109,1717.06 869.854,1844.62 869.854,1844.62" style="fill:none;stroke:black;stroke-width:8.33px;"/>
         </g>
     </g>
     <g transform="matrix(-3.18158,0.0215875,-0.00764027,-1.00002,8908.93,2554.4)">
@@ -112,10 +112,10 @@
             <path d="M2098.16,2049.15C1956.35,2048.69 1108.28,2045.96 1108.28,2045.96" style="fill:none;stroke:black;stroke-width:8.33px;"/>
         </g>
     </g>
-    <g transform="matrix(1.37846,0,0,1.14025,-650.352,-467.335)">
-        <rect x="688.049" y="878.209" width="828.501" height="1036.12" style="fill:rgb(235,235,235);fill-opacity:0.23;stroke:black;stroke-width:2.31px;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:2.31,2.31;"/>
+    <g transform="matrix(1.37846,0,0,1.17065,-651.482,-480.566)">
+        <rect x="688.049" y="878.209" width="828.501" height="1036.12" style="fill:rgb(235,235,235);fill-opacity:0.23;stroke:black;stroke-width:2.28px;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:2.28,2.28;"/>
     </g>
-    <g transform="matrix(1,0,0,1,-363.921,-319.498)">
+    <g transform="matrix(1,0,0,1,-359.091,-339.509)">
         <text x="816.703px" y="1255.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">TodoListControl();</text>
         <text x="816.703px" y="1305.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">TodoListControl( yamlStr );</text>
         <text x="816.703px" y="1405.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">ToSortedList();</text>
@@ -126,6 +126,8 @@
         <text x="816.703px" y="1755.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Delete( todoTask );</text>
         <text x="816.703px" y="1805.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">SetStatus( todoTask );</text>
         <text x="816.703px" y="1855.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Cancel( todoTask );</text>
+        <text x="816.703px" y="1905.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">IndexOf( todoTask );</text>
+        <text x="816.703px" y="1955.63px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:50px;">Count();</text>
     </g>
     <g transform="matrix(1.49337,-0.000224842,-0.000224842,1,-696.647,-289.069)">
         <path d="M664.535,939.716L1429.77,939.367" style="fill:none;stroke:black;stroke-width:2.13px;"/>
