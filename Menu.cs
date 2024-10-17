@@ -1,6 +1,7 @@
 
 using static System.StringComparison;
 using static System.Console;
+using YamlDotNet.Serialization.NodeTypeResolvers;
 
 namespace ToDoList
 {
@@ -88,35 +89,18 @@ namespace ToDoList
             return true;
         }
 
-        /* returns true if action was performed */
-        private bool Edit()
-        {
-            WriteLine("Edit Task");
-            // Ask User for Nbr in List
-            // Validate
-            // Ask user for Property (Description, Project, Due Date)
-            // Ask user for Input
-            // If Property is Due Date validate
-            // Call TodoListControl.Edit(Nbr,PropertyName,Input)
-            int index = 0;
-
-            _listControl.Edit( index, "edited", "project" );
-            return true;
-        }
-
         /* 
             asks for user line of task to delete/cancel/edit/change status
             returns real index of item on line
             user is presented with a list of sorted items, 
             they are not sorted unless presented
-            Probably would be better to keep the list in the control sorted? 
         */
-        private int LineOpHelper( List<TodoTask> sortedList )
+        private int LineOpHelper( List<TodoTask> sortedList, string message )
         {
             bool done = false; 
             while( !done ) 
             {
-                Write("Enter line number for task to delete: ");
+                Write(message);
 
                 var input = ReadLine()?.Trim();
 
@@ -126,7 +110,7 @@ namespace ToDoList
                 {
                     WriteLine("Aborted!");
                     WriteLine();
-                    return 0; 
+                    return -1; 
                 }
             
                 if( int.TryParse( input,  out int index ) )
@@ -137,6 +121,10 @@ namespace ToDoList
                         var task = sortedList.ElementAt(index-1);
                         return _listControl.IndexOf( task );
                     }
+                    else
+                    {
+                        WriteLine("Index out of range.");    
+                    }
                 }
                 else
                 {
@@ -144,7 +132,7 @@ namespace ToDoList
                 }
             
             }  
-            return 0;                
+            return -1;               
         }
 
         /* returns true if action was performed */
@@ -156,10 +144,15 @@ namespace ToDoList
             bool done = false; 
             while( !done ) 
             {
-                Write("Enter line number for task to delete: ");
+                var index = LineOpHelper( sortedList, "Enter line number for task to delete: " );
 
-                var index = LineOpHelper( sortedList );
-                WriteLine($"To delete: {index}");
+                if( index < 0 )
+                {
+                    // User entered Q 
+                    return false; 
+                }
+
+                // WriteLine($"To delete: {index}");
 
                 try 
                 {
@@ -177,6 +170,103 @@ namespace ToDoList
             return false; 
             
         }
+
+        /* returns true if action was performed */
+        private bool Edit( List<TodoTask> sortedList )
+        {
+            WriteLine("Edit Task.");
+
+            // Ask user for Property (Description, Project, Due Date)
+            // Ask user for Input
+            // If Property is Due Date validate
+            // Call TodoListControl.Edit(Nbr,PropertyName,Input)
+            var index = LineOpHelper( sortedList, "Enter line number for task to edit: " );
+                 
+            if( index < 0 )
+            {
+                // User entered Q 
+                return false; 
+            }           
+
+            WriteLine($"editing item {index}");
+
+            bool done = false; 
+            while( !done )
+            {
+                Write("Enter property to edit, (D)escription, (P)roject, Da(T)e: ");
+                var input = ReadLine()?.Trim().ToLower();
+                input ??= "";
+
+                if( input.Equals( "q" ))
+                {
+                    WriteLine("Aborted!");
+                    return false; 
+                }
+
+                if( input.Equals( "d" ) || input.Equals( "p" ) )
+                {
+                    var propertyString = "";
+                    if( input.Equals("d") ) input = "description";
+                    if( input.Equals("p") ) input = "project";
+                    
+                    while( !done )
+                    {
+
+                        Write($"Enter {input}: ");
+                        propertyString = ReadLine()?.Trim();
+                        if( propertyString != "" )
+                        {
+                            done = true;
+                        }
+                    }
+                    
+                    if( propertyString is not null )
+                    {
+                        WriteLine();
+                        _listControl.Edit( index, propertyString, input );                    
+                        return true; 
+                    }
+                    else
+                    {
+                       done = false;  
+                    }
+                }
+                else if( input.Equals( "t" ) )
+                {
+                    var dueDateString = "";
+                    done = false;
+                    while( !done )
+                    {
+                        Write($"Enter date (YYYY-MM-DD): ");
+                        dueDateString = ReadLine()?.Trim();
+                        if( dueDateString != "" )
+                        {
+                            // Validate that dueDateString is a parsable date
+                            if( DateOnly.TryParse( dueDateString, out var dontCare ) )
+                            {
+                                done = true; 
+                            }
+                        }
+                    }
+
+                    if( dueDateString is not null )
+                    {
+                        WriteLine();
+                        _listControl.Edit( index, dueDateString, "duedate" );
+                        return true; 
+                    }
+                    else 
+                    {
+                        done = false; 
+                    }
+                } 
+
+            }
+
+  
+            return false;
+        }
+
 
         /* returns true if action was performed */
         private bool SetStatus()
@@ -202,7 +292,7 @@ namespace ToDoList
 
         private bool Quit()
         {
-            WriteLine("Bye.");
+            WriteLine("Goodbye!");
             return true;         
         }                
 
@@ -299,37 +389,47 @@ namespace ToDoList
             WriteLine("Menu: (N)ew, (E)dit, (D)elete, (S)tatus change, (C)ancel, (Q)uit");
             WriteLine();
 
-            string? input = ReadLine()?.Trim();
+            string? input = ReadLine()?.Trim().ToUpper();
 
             switch( input )
             {
                 case "N":
                     if( New() )
                     {
+                        WriteLine("New task added!");
+                        WriteLine();
                         // Write to file
                     }
                     break;
                 case "E":
-                    if( Edit() )
+                    if( Edit( sortedList ) )
                     {
+                        WriteLine("Task edited!");
+                        WriteLine();
                         // Write to file
                     }
                     break;
                 case "D":
                     if( Delete( sortedList ) )
                     {
+                        WriteLine("Task deleted!");
+                        WriteLine();
                         // Write to file
                     }
                     break;
                 case "S":
                     if( SetStatus() )
                     {
+                        WriteLine("Task status changed!");
+                        WriteLine();
                         // Write to file
                     }
                     break;
                 case "C":
                     if( Cancel() ) 
                     {
+                        WriteLine("Task cancelled!");
+                        WriteLine();                        
                         // Write to file
                     }
                     break;

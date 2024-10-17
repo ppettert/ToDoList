@@ -8,6 +8,8 @@ namespace ToDoList
 {
 
     /*
+        From the project spec:
+        
         You can think like this about save to file and read from file:  
         For example ToDoList Project 
         

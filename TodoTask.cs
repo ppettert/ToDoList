@@ -32,7 +32,9 @@ namespace ToDoList
 
         /* returns false if propertyName does not match any TodoTask property */
         public bool EditProperty( string propertyString, string propertyName )
-        {
+        {   
+            propertyName = propertyName.ToLower();
+
             switch( propertyName )
             {
                 case "description":
