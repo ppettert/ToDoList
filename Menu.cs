@@ -188,7 +188,7 @@ namespace ToDoList
                 return false; 
             }           
 
-            WriteLine($"editing item {index}");
+            // WriteLine($"editing item {index}");
 
             bool done = false; 
             while( !done )
@@ -200,6 +200,7 @@ namespace ToDoList
                 if( input.Equals( "q" ))
                 {
                     WriteLine("Aborted!");
+                    WriteLine();
                     return false; 
                 }
 
@@ -260,6 +261,10 @@ namespace ToDoList
                         done = false; 
                     }
                 } 
+                else 
+                {
+                    WriteLine("Invalid property.");
+                }      
 
             }
 
@@ -269,24 +274,53 @@ namespace ToDoList
 
 
         /* returns true if action was performed */
-        private bool SetStatus()
+        private bool SetStatus( List<TodoTask> sortedList )
         {
-            WriteLine("Set Task Status");    
-            // Ask User for Nbr in List
-            // Call TodoListControl.ToggleStatus(Nbr)   
-            int index = 0;  
-            _listControl.SetStatus( index );
-            return true;
+            WriteLine("Set Task Status.");    
+            var index = LineOpHelper( sortedList, "Enter line number for task to change status: " );
+              
+            if( index < 0 )
+            {
+                // User entered Q 
+                return false; 
+            }   
+
+            if( _listControl.SetStatus( index ) )
+            {
+                return true;
+            }
+            else 
+            {
+                WriteLine("Cannot change status on cancelled items!");
+                WriteLine();
+                return false; 
+            }
         }
 
         /* returns true if action was performed */
-        private bool Cancel()
+        private bool Cancel( List<TodoTask> sortedList )
         {
             WriteLine("Cancel task");
-            // Ask User for Nbr in List
-            // Call TodoListControl.SetStatus(Cancelled)
-            int index = 0;
-            _listControl.Cancel( index );
+            var index = LineOpHelper( sortedList, "Enter line number for task to (un)cancel: " );
+            
+            if( index < 0 )
+            {
+                // User entered Q 
+                return false; 
+            }   
+
+            var cancelled = _listControl.Cancel( index );
+            if( cancelled )
+            {
+                WriteLine("Task Cancelled!");
+                WriteLine();
+            }
+            else
+            {
+                WriteLine("Task uncancelled!");
+                WriteLine();
+            }
+
             return true;
         }
 
@@ -386,7 +420,7 @@ namespace ToDoList
             PrintList( sortedList );
             WriteLine();
 
-            WriteLine("Menu: (N)ew, (E)dit, (D)elete, (S)tatus change, (C)ancel, (Q)uit");
+            WriteLine("Menu: (N)ew, (E)dit, (D)elete, (S)tatus change, (C)ancel/Uncancel, (Q)uit");
             WriteLine();
 
             string? input = ReadLine()?.Trim().ToUpper();
@@ -395,9 +429,9 @@ namespace ToDoList
             {
                 case "N":
                     if( New() )
+                        WriteLine();
                     {
                         WriteLine("New task added!");
-                        WriteLine();
                         // Write to file
                     }
                     break;
@@ -418,7 +452,7 @@ namespace ToDoList
                     }
                     break;
                 case "S":
-                    if( SetStatus() )
+                    if( SetStatus( sortedList ) )
                     {
                         WriteLine("Task status changed!");
                         WriteLine();
@@ -426,7 +460,7 @@ namespace ToDoList
                     }
                     break;
                 case "C":
-                    if( Cancel() ) 
+                    if( Cancel( sortedList ) ) 
                     {
                         WriteLine("Task cancelled!");
                         WriteLine();                        
@@ -438,7 +472,7 @@ namespace ToDoList
                     loop = false;
                     break;
                 default:
-                    WriteLine("No.");
+                    WriteLine("Menu choice not understood.");
                     break;
 
             };

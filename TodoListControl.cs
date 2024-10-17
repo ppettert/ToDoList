@@ -26,14 +26,27 @@ namespace ToDoList
             TaskList.RemoveAt(index);
         }
 
-        public void SetStatus( int index )
+        public bool SetStatus( int index )
         {
-            TaskList.ElementAt( index ).ChangeStatus();
+            var task = TaskList.ElementAt( index );
+            
+            if( !task.Cancelled )
+            {
+                task.ChangeStatus();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
-        public void Cancel( int index )
+        public bool Cancel( int index )
         {
-            TaskList.ElementAt( index).ToggleCancel();
+           var task = TaskList.ElementAt( index );
+           task.ToggleCancel();
+           return task.Cancelled;
         }
 
         public int Count()
