@@ -296,8 +296,8 @@ namespace ToDoList
         /* returns true if action was performed */
         private bool Cancel( List<TodoTask> sortedList )
         {
-            WriteLine("Cancel task");
-            var index = LineOpHelper( sortedList, "Enter line number for task to (un)cancel: " );
+            WriteLine("Cancel/Uncancel task");
+            var index = LineOpHelper( sortedList, "Enter line number for task to toggle cancel status: " );
             
             if( index < 0 )
             {
@@ -369,7 +369,7 @@ namespace ToDoList
                 
                 if( task.Cancelled )
                 {
-                    ForegroundColor = ConsoleColor.White; // Looks like grey in my terminal
+                    ForegroundColor = ConsoleColor.DarkGray; 
                     Write("Cancelled".PadRight(15));
                 }
                 else
@@ -387,7 +387,7 @@ namespace ToDoList
                                     ForegroundColor = ConsoleColor.DarkRed;
                                     break;
                                 default:
-                                    ForegroundColor = ConsoleColor.Green;
+                                    ForegroundColor = ConsoleColor.DarkGreen;
                                     break;
                             };
 
@@ -474,6 +474,7 @@ namespace ToDoList
                     break;
                 default:
                     WriteLine("Menu choice not understood.");
+                    WriteLine();
                     break;
 
             };
