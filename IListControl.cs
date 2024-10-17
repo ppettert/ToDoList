@@ -11,7 +11,7 @@ namespace ToDoList
         public int Count();
 
         public List<TodoTask> ToSortedList();
-        public int IndexOf( TodoTask task ); 
-
+        public int IndexOf( TodoTask task );
+        public string ToYamlString();
    }
 } 

@@ -9,7 +9,7 @@ namespace ToDoList
 
     /*
         From the project spec:
-        
+
         You can think like this about save to file and read from file:  
         For example ToDoList Project 
         
@@ -37,7 +37,7 @@ namespace ToDoList
         You can sort it when you get the info again from file. Just think and create your appropriate functions and methods. 
     */
  
-
+    /* Main application class */
     public class TodoListApp
     {
 
@@ -56,40 +56,14 @@ namespace ToDoList
             WriteLine( "Today's date: " + DateTime.Today.ToString("yyyy-MM-dd") );
             WriteLine();
 
-            var todoListControl = new TodoListControl();
-
-            todoListControl.TaskList.AddRange
-            ( 
-                [
-                   // new( "Oj", "Oj", "Oj" ), // string with intentionally invalid date
-                    new( "Hej den här texten kan vara 40 tkn", "2023-10-01", "Project X", TaskStatus.Completed ),
-                    new( "En text här",  "2024-09-02", "Project Y", TaskStatus.Completed ),
-                    new( "Ja jaja ajajajajaj jajajjajaa jaja", "2021-11-03", "Project Z", TaskStatus.Pending ),
-                    new( "Something I haven't done in time", "2023-11-03", "Project Z", TaskStatus.Pending ),
-                    new( "This is next month", "2024-11-16", "Project ZZZ"),
-                    new( "This is far into the future", "2029-03-17", "Project 3000"),
-                    new( "Something I'm supposed to do today", DateTime.Today.ToString("yyyy-MM-dd"), "Project Z", TaskStatus.Pending ),
-                    new( "Hey there, this is a descripton text", "2025-01-01", "Project Z1", TaskStatus.Pending, true ),
-                    new( "Something I did not want to do", "2021-01-01", "Project Z1", TaskStatus.Pending, true )
-                ]
-            );
 
 
-            // try 
-            // { 
-            //     // FormatException if DueDate contains garbage
-            //     List<TodoTask> sortedTaskList = todoListControl.ToSortedList();
-                
-            //     todoListControl.TaskList = sortedTaskList;
-
-            //     WriteLine(todoListControl.ToYamlString());
-              
-            // }
-            // catch( System.FormatException e )
-            // {
-            //     WriteLine( "Invalid date field: " + e.Message );
-            // }
+            var yaml = File.ReadAllText( "todolist.yaml" );
+            var todoListControl = new TodoListControl( yaml );
             
+            File.Copy( "todolist.yaml", "todolist.yaml.old", true );
+
+
             IListControl listControl = todoListControl;
             var menu = new Menu( listControl );
             while( menu.Run() )
@@ -97,26 +71,40 @@ namespace ToDoList
                 // MainMenu loop
             }
 
+
+            // ******* TEST CODE ********
             // WriteLine("----test code-----");
 
-            var yaml = todoListControl.ToYamlString();
+            // var todoListControl = new TodoListControl();
+            // todoListControl.TaskList.AddRange
+            // ( 
+            //     [
+            //        // new( "Oj", "Oj", "Oj" ), // string with intentionally invalid date
+            //         new( "Hej den här texten kan vara 40 tkn", "2023-10-01", "Project X", TaskStatus.Completed ),
+            //         new( "En text här",  "2024-09-02", "Project Y", TaskStatus.Completed ),
+            //         new( "Ja jaja ajajajajaj jajajjajaa jaja", "2021-11-03", "Project Z", TaskStatus.Pending ),
+            //         new( "Something I haven't done in time", "2023-11-03", "Project Z", TaskStatus.Pending ),
+            //         new( "This is next month", "2024-11-16", "Project ZZZ"),
+            //         new( "This is far into the future", "2029-03-17", "Project 3000"),
+            //         new( "Something I'm supposed to do today", DateTime.Today.ToString("yyyy-MM-dd"), "Project Z", TaskStatus.Pending ),
+            //         new( "Hey there, this is a descripton text", "2025-01-01", "Project Z1", TaskStatus.Pending, true ),
+            //         new( "Something I did not want to do", "2021-01-01", "Project Z1", TaskStatus.Pending, true )
+            //     ]
+            // );
 
-            File.WriteAllText("todolist.yaml", yaml);
+            // var yaml = todoListControl.ToYamlString();
 
-            /*
+            // File.WriteAllText("todolist.yaml", yaml);
 
-                turn around
+            // Turn around
 
-            */
-
-            var yaml_from_file = File.ReadAllText( "todolist.yaml" );
+            // var yaml_from_file = File.ReadAllText( "todolist.yaml" );
 
             // Sanity Test cases
             // ctrl_a, ctrl_b and ctrl_c will contain the same data if successful
-            var ctrl_a = TodoListControl.FromYamlString( yaml );
-            var ctrl_b = TodoListControl.FromYamlString( yaml_from_file );     
-
-            var ctrl_c = new TodoListControl( yaml );
+            // var ctrl_a = TodoListControl.FromYamlString( yaml );
+            // var ctrl_b = TodoListControl.FromYamlString( yaml_from_file );     
+            // var ctrl_c = new TodoListControl( yaml );
            
             // WriteLine("----end test code----");
         }

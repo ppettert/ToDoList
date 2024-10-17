@@ -176,10 +176,6 @@ namespace ToDoList
         {
             WriteLine("Edit Task.");
 
-            // Ask user for Property (Description, Project, Due Date)
-            // Ask user for Input
-            // If Property is Due Date validate
-            // Call TodoListControl.Edit(Nbr,PropertyName,Input)
             var index = LineOpHelper( sortedList, "Enter line number for task to edit: " );
                  
             if( index < 0 )
@@ -317,7 +313,7 @@ namespace ToDoList
             }
             else
             {
-                WriteLine("Task uncancelled!");
+                WriteLine("Task Uncancelled!");
                 WriteLine();
             }
 
@@ -411,6 +407,11 @@ namespace ToDoList
             }
         }
 
+        private void WriteToFile()
+        {
+            File.WriteAllText( "todolist.yaml", _listControl.ToYamlString());
+        }
+
         public bool Run()
         { 
             loop = true; 
@@ -432,7 +433,7 @@ namespace ToDoList
                         WriteLine();
                     {
                         WriteLine("New task added!");
-                        // Write to file
+                        WriteToFile();
                     }
                     break;
                 case "E":
@@ -440,7 +441,7 @@ namespace ToDoList
                     {
                         WriteLine("Task edited!");
                         WriteLine();
-                        // Write to file
+                        WriteToFile();
                     }
                     break;
                 case "D":
@@ -448,7 +449,7 @@ namespace ToDoList
                     {
                         WriteLine("Task deleted!");
                         WriteLine();
-                        // Write to file
+                        WriteToFile();
                     }
                     break;
                 case "S":
@@ -456,15 +457,15 @@ namespace ToDoList
                     {
                         WriteLine("Task status changed!");
                         WriteLine();
-                        // Write to file
+                        WriteToFile();
                     }
                     break;
                 case "C":
                     if( Cancel( sortedList ) ) 
                     {
-                        WriteLine("Task cancelled!");
+                        // WriteLine("Task cancelled!");
                         WriteLine();                        
-                        // Write to file
+                        WriteToFile();
                     }
                     break;
                 case "Q":
