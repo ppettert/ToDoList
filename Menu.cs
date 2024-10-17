@@ -1,5 +1,5 @@
 
-using System.Linq.Expressions;
+using static System.StringComparison;
 using static System.Console;
 
 namespace ToDoList
@@ -14,13 +14,77 @@ namespace ToDoList
         /* returns true if action was performed */
         private bool New()
         {
-            WriteLine("New Task");
-            // Ask user for Description, 
-            // Ask user for Project
-            // Ask user for Due Date
-            // Validate date
-            // Call TodoListControl.Add
-            _listControl.Add( "I have to do something", "2011-11-11", "Project Q");
+            string? description = "";
+            string? project = "";
+            string? dueDate = "";
+
+            WriteLine();
+            WriteLine("Add New Task, enter description, project name and due date.");
+
+            bool done = false; 
+            while( !done )
+            {
+                Write("Description: ");
+                description = ReadLine()?.Trim();
+                description ??= ""; // if null set it to ""
+
+                if( description != "" )
+                {
+                    if( description.Equals("Q", OrdinalIgnoreCase ))
+                    {
+                        WriteLine("Aborted!");
+                        WriteLine();
+                        return false; 
+                    }
+                    done = true;
+                }
+            }
+
+            done = false;
+            while( !done )
+            {
+                Write("Project: ");
+                project = ReadLine()?.Trim();
+                project ??= ""; // if null set it to ""
+
+                if( project != "" )
+                {
+                    if( project.Equals("Q", OrdinalIgnoreCase ))
+                    {
+                        WriteLine("Aborted!");
+                        WriteLine();
+                        return false; 
+                    }
+
+                    done = true;
+                }
+            }
+            
+            done = false;
+            while( !done )
+            {
+                Write("Due Date YYYY-MM-DD: ");
+                dueDate = ReadLine()?.Trim();
+                dueDate ??= ""; // if null set it to ""
+
+                if( dueDate != "" )
+                {
+                    if( dueDate.Equals("Q", OrdinalIgnoreCase ))
+                    {
+                        WriteLine("Aborted!");
+                        WriteLine();
+                        return false; 
+                    }
+
+                    done = DateOnly.TryParse( dueDate, out DateOnly dueDateResult );
+                    if( !done ) 
+                    {
+                        WriteLine($"{dueDate} is not a valid date");
+                    }
+                }
+            }           
+
+            _listControl.Add( description, dueDate, project );
             return true;
         }
 
@@ -40,24 +104,77 @@ namespace ToDoList
             return true;
         }
 
-        /* returns true if action was performed */
-        private bool Delete()
+        /* 
+            asks for user line of task to delete/cancel/edit/change status
+            returns real index of item on line
+            user is presented with a list of sorted items, 
+            they are not sorted unless presented
+            Probably would be better to keep the list in the control sorted? 
+        */
+        private int LineOpHelper( List<TodoTask> sortedList )
         {
-            WriteLine("Delete Task");
-            // Ask User for Nbr in List
-            // Validate, Confirm
-            // Call TodoListControl.Delete(Nbr)
-            int index = 0;
-            try 
+            bool done = false; 
+            while( !done ) 
             {
-                _listControl.Delete( index );
-                return true;
-            }
-            catch( System.ArgumentOutOfRangeException e )
+                Write("Enter line number for task to delete: ");
+
+                var input = ReadLine()?.Trim();
+
+                input ??= ""; // if null set it to empty string
+
+                if( input.Equals( "Q", OrdinalIgnoreCase ) )
+                {
+                    WriteLine("Aborted!");
+                    WriteLine();
+                    return 0; 
+                }
+            
+                if( int.TryParse( input,  out int index ) )
+                {
+                    // check range
+                    if( index > 0 && index <= _listControl.Count() )
+                    {
+                        var task = sortedList.ElementAt(index-1);
+                        return _listControl.IndexOf( task );
+                    }
+                }
+                else
+                {
+                    WriteLine("Invalid line number.");
+                }
+            
+            }  
+            return 0;                
+        }
+
+        /* returns true if action was performed */
+        private bool Delete( List<TodoTask> sortedList )
+        {
+            WriteLine();
+            WriteLine("Delete task.");
+            
+            bool done = false; 
+            while( !done ) 
             {
-                WriteLine( "Did not delete: " + e.Message );
-                return false;
+                Write("Enter line number for task to delete: ");
+
+                var index = LineOpHelper( sortedList );
+                WriteLine($"To delete: {index}");
+
+                try 
+                {
+                    _listControl.Delete( index );
+                    return true;
+                }
+                catch( System.ArgumentOutOfRangeException e )
+                {
+                    WriteLine( "Did not delete: " + e.Message );
+                    return false;
+                }
+            
             }
+            
+            return false; 
             
         }
 
@@ -103,14 +220,14 @@ namespace ToDoList
         //     10     [Cancelled]     Learn to fly      Project X        2025-11-23
         //
 
-            Write("Id".PadRight(5));
+            Write("Row".PadRight(5));
             Write("Status".PadRight(15));
             Write("Description".PadRight(40));
             Write("Project".PadRight(20));
             Write("Due date");
             WriteLine();
 
-            Write("==".PadRight(5));
+            Write("===".PadRight(5));
             Write("=======".PadRight(15));
             Write("===========".PadRight(40));
             Write("=======".PadRight(20));
@@ -128,7 +245,7 @@ namespace ToDoList
             int index = 1;
             foreach( var task in tasks)
             {
-                Write($"{index}".PadRight(5));
+                Write($"{index}".PadLeft(3).PadRight(5));
                 
                 if( task.Cancelled )
                 {
@@ -174,7 +291,9 @@ namespace ToDoList
         { 
             loop = true; 
 
-            PrintList(_listControl.ToSortedList());
+            var sortedList = _listControl.ToSortedList();
+
+            PrintList( sortedList );
             WriteLine();
 
             WriteLine("Menu: (N)ew, (E)dit, (D)elete, (S)tatus change, (C)ancel, (Q)uit");
@@ -185,19 +304,34 @@ namespace ToDoList
             switch( input )
             {
                 case "N":
-                    New();
+                    if( New() )
+                    {
+                        // Write to file
+                    }
                     break;
                 case "E":
-                    Edit();
+                    if( Edit() )
+                    {
+                        // Write to file
+                    }
                     break;
                 case "D":
-                    Delete();
+                    if( Delete( sortedList ) )
+                    {
+                        // Write to file
+                    }
                     break;
                 case "S":
-                    SetStatus();
+                    if( SetStatus() )
+                    {
+                        // Write to file
+                    }
                     break;
                 case "C":
-                    Cancel();
+                    if( Cancel() ) 
+                    {
+                        // Write to file
+                    }
                     break;
                 case "Q":
                     Quit();

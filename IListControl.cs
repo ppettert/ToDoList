@@ -1,3 +1,4 @@
+
 namespace ToDoList
 {
    public interface IListControl
@@ -7,8 +8,10 @@ namespace ToDoList
         public void Delete( int index );
         public void SetStatus( int index );
         public void Cancel( int index );
+        public int Count();
 
-        public List<TodoTask> ToSortedList();        
+        public List<TodoTask> ToSortedList();
+        public int IndexOf( TodoTask task ); 
 
    }
 } 

@@ -1,4 +1,5 @@
 ﻿using static System.Console;
+using System.Globalization;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -43,6 +44,10 @@ namespace ToDoList
         */
         private static void Main(string[] args)
         {
+           
+            // Setting this made DateOnly.TryParse accept yyyy-MM-dd :)
+            CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+           
             WriteLine();
             WriteLine( "Welcome to TODO List App 1.0" );
             WriteLine( "----------------------------" );

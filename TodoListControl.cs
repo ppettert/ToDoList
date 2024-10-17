@@ -36,6 +36,16 @@ namespace ToDoList
             TaskList.ElementAt( index).ToggleCancel();
         }
 
+        public int Count()
+        {
+            return TaskList.Count;
+        }
+
+        public int IndexOf( TodoTask task )
+        {
+            return TaskList.IndexOf( task );
+        }
+
         // public void PrintList()
         // {
         //     PrintList(TaskList);
