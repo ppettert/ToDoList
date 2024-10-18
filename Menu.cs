@@ -5,7 +5,9 @@ using YamlDotNet.Serialization.NodeTypeResolvers;
 
 namespace ToDoList
 {
-
+    /*
+     * Class instance constructor
+     */
     public class Menu(IListControl listControl)
     {
         // flag to tell if we stay in ui loop or not
@@ -320,6 +322,7 @@ namespace ToDoList
             return true;
         }
 
+        /* Time to say goodbye */
         private bool Quit()
         {
             WriteLine("Goodbye!");
@@ -407,11 +410,13 @@ namespace ToDoList
             }
         }
 
+        /* Writes the entire list to file in one go */
         private void WriteToFile()
         {
             File.WriteAllText( "todolist.yaml", _listControl.ToYamlString());
         }
 
+        /* Prints the menu choices and reads user input and makes appropriate calls */
         public bool Run()
         { 
             loop = true; 
