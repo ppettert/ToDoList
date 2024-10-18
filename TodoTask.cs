@@ -3,12 +3,18 @@
 namespace ToDoList
 {
 
+    /*
+     *  Enum for TodoTask state
+     */
     public enum TaskStatus
     {
         Pending,
         Completed
     }
 
+    /*
+     *  
+     */
     public class TodoTask
     {
         public string? Description { get; set; } 
@@ -17,6 +23,9 @@ namespace ToDoList
         public string? Project { get; set; } 
         public bool Cancelled { get; set; }
 
+        /*
+         * TodoTask Class constructor, creates a new TodoTask instance
+         */
         public TodoTask()
         {
            // Required by yaml deserialize!
@@ -30,7 +39,17 @@ namespace ToDoList
             Cancelled = cancelled;
         }
 
-        /* returns false if propertyName does not match any TodoTask property */
+        /* 
+         *  EditProperty method, to edit the properties of a TodoTask
+         *
+         *  Parameters:
+         *
+         *  propertyString  string  The property value
+         *  propertyName    string  The name of the property to change
+         *    
+         *  returns:    false if propertyName does not match any TodoTask property
+         *              true if the property was changed successfully
+         */
         public bool EditProperty( string propertyString, string propertyName )
         {   
             propertyName = propertyName.ToLower();
