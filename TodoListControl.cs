@@ -5,8 +5,11 @@ using static System.Console;
 
 namespace ToDoList
 {
-    // Acts as controller of the model which is
-    // the contained TaskList and it's TodoTask items.
+    /* 
+     * List controller class implementation of the model which is
+     * the contained TaskList and it's TodoTask items.
+     * public methods are described in IListControl comments
+     */
     public class TodoListControl : IListControl 
     {
         public List<TodoTask> TaskList { get; set; } = [];
@@ -72,6 +75,9 @@ namespace ToDoList
             return serializer.Serialize(this);
         }
 
+        /*
+         * Creates a new instance of TodoListControl class from a yaml string
+         */
         public static TodoListControl FromYamlString(string yaml)
         {
             var deserializer = new DeserializerBuilder()
@@ -99,6 +105,9 @@ namespace ToDoList
 
         }
 
+        /*
+         * Class constructors 
+         */
         public TodoListControl()
         {    
         }
