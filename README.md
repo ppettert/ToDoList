@@ -40,6 +40,10 @@ ui view and the code that controls the model through a C# interface.
 
 ### TODO
 
+Comments in all classes! 
+
+### Improvements
+
 There is much room for improvements. Focus was to finish the core functionality in time for presentation.
 
 Some changes that I would like to make:
